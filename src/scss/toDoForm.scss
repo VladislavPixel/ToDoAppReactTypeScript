@@ -1,0 +1,16 @@
+.todo-block{
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+	&__text-field{
+		border: 1px solid blueviolet;
+		height: 50px;
+		font-size: 25px;
+		padding: 10px;
+	}
+	&__label{
+		font-size: 27px;
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+}

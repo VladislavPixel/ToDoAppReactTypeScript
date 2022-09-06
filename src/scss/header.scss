@@ -1,0 +1,14 @@
+.header{
+	padding: 15px;
+	background: rgb(0, 68, 255);
+	&__container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__title{
+		font-size: 27px;
+		color: white;
+		font-weight: 600;
+	}
+}
