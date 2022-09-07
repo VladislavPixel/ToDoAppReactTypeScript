@@ -1,21 +1,30 @@
-import React, { useState } from "react"
+import React, { useRef } from "react"
+// TypeScript models
+import type { DataTypes } from "../../models"
 
 interface ToDoFormProps{
 	classesParent: string;
+	onAddTask: (task: DataTypes.Task) => void;
 }
 
-const ToDoForm: React.FC<ToDoFormProps> = ({ classesParent }) => {
-	const [value, setValue] = useState<string>("")
-	const handlerChange = (event: React.ChangeEvent<HTMLInputElement>) => setValue(prevState => event.target.value)
+const ToDoForm: React.FC<ToDoFormProps> = ({ classesParent, onAddTask }) => {
+	// AUXILIARY
+	const ref = useRef<HTMLInputElement>(null)
+	// HANDLERS
 	const handlerPress = (event: React.KeyboardEvent) => {
 		if (event.charCode === 13) {
-			console.log("Это enter!", value)
+			onAddTask({
+				id: Date.now(),
+				title: ref.current!.value,
+				status: "in process"
+			})
+			ref.current!.value = ""
 		}
 	}
 	return (
 		<div className={`${classesParent}__todo todo-block`}>
 			<label className="todo-block__label" htmlFor="title">Введите название задачи_</label>
-			<input onKeyPress={handlerPress} onChange={handlerChange} value={value} placeholder="Ожидаю от Вас задачу" className="todo-block__text-field" type="text" id="title" />
+			<input ref={ref} onKeyPress={handlerPress} placeholder="Ожидаю от Вас задачу" className="todo-block__text-field" type="text" id="title" />
 		</div>
 	)
 }
