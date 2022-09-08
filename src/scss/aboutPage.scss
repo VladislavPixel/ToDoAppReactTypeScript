@@ -1,0 +1,18 @@
+.about{
+	margin-top: 20px;
+	&__title{
+		font-size: 25px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+	&__sub-title{
+		line-height: 110%;
+		margin-bottom: 20px;
+	}
+	&__back-btn{
+		padding: 10px;
+		background: rgb(0, 119, 255);
+		color: #fff;
+		font-size: 21px;
+	}
+}

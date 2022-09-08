@@ -1,13 +1,16 @@
 .navbar-block{
 	&__list{
 		display: flex;
-		li:first-child{
+	}
+	&__element{
+		&:first-child{
 			margin-right: 10px;
 		}
-		li a{
-			color: rgb(248, 248, 248);
-			font-size: 19px;
-			font-weight: 600;
+		color: rgb(248, 248, 248);
+		font-size: 19px;
+		font-weight: 600;
+		&.active{
+			color: rgb(201, 184, 0);
 		}
 	}
 }

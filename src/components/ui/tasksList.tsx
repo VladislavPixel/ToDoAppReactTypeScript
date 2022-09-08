@@ -20,7 +20,7 @@ const TasksList: React.FC<TasksListProps> = ({ classesParent, tasksData, onUpdat
 							const { id, status, title } = task
 							return (
 								<li className={status === "in process" ? "active" : "no-active"} key={id + index}>
-									<input onChange={() => onUpdateStatus(task)} className="tasks-list__check" type="checkbox" />
+									<input onChange={() => onUpdateStatus(task)} checked={status === "in process" ? false : true} className="tasks-list__check" type="checkbox" />
 									{`${index + 1}. ${title}`}
 									<button onClick={() => onRemoveTask(id)} className="tasks-list__remove-btn">Удалить задачу</button>
 								</li>
